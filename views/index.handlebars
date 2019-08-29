@@ -1,33 +1,52 @@
-<div class="container">
-    <section id="page-name">
-            <iframe id="main-image" src="https://giphy.com/embed/UAXou95E6oPjW" width="480" height="326" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-            <h1>Eat-Da-Buger</h1>
-    </section>
+<section class="section">
+  <div class="container is-fluid">
+    <h1 class="title is-centered">Eat-Da-Burger</h1>
 
-    <section class="row">
-        <div class="col-md-7 col-left">
-            <table>
-                {{#each burgers}}
-                    {{#unless devoured}}
-                        {{> burgers/burger-block}}
-                    {{/unless}}
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+          <div class="tile is-child box">
+            <figure class="image is-128x128">
+              <img src="../../assets/img/hamburger.png" alt="burger">
+              </figure>
+              <form class="create-form">
+              <div class="form-group">
+                <label for="burger">Burger Name:</label>
+                 <input type="text" id="burger" name="name">
+                 <button class="button is-rounded" type="submit" id="submit">Order Your Burger</button>
+              </form>
+              </div>
+          </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box"> 
+            <h2>Your order is ready!</h2>
+            <ul class= "orders">
+              {{#each burgers}}
+                {{#unless devoured}}
+                <li>
+                  {{burger_name}}
+                  <button class="button is-rounded eat" data-id="{{id}}" data-state="{{devoured}}">Eat-da-burger!</button>
+                </li>
+                {{/unless}}
                 {{/each}}
-            </table>
-        </div>
-        <div class="col-md-5 col-right">
-            {{#each burgers}}
-                {{#if devoured}}
-                    <div>{{id}}. {{burger_name}}</div>
-                {{/if}}
-            {{/each}}        
-        </div>          
-    </section>
+                </ul> 
+                </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child box">
+                    <h2>Hope you enjoyed your burger!</h2>
+                    <ul class="devoured">
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li>
+                        {{burger_name}}
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                  </div>
+                </div>   
 
-    <form class="create-form">
-        <div class="form-group">
-            <label for="name"></label>
-            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
-        </div>
-        <button type="submit">Add Burger</button>
-    </form>     
-</div>
+    </div>
+  </div>
+</section>
