@@ -4,7 +4,7 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
       console.log("create form");
-  
+  // newBurger val & trim
       var newBurger = {
         name: $("#burger").val().trim()
       };
@@ -19,10 +19,10 @@ $(function() {
         location.reload();
       });
     });
-  
+  // eat-on-click function
     $(".eat").on("click", function(event) {
       var id = $(this).data("id");
-  
+  // Console.log id
       console.log(id);
   
       // Send the PUT request.
