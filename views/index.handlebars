@@ -1,52 +1,38 @@
-<section class="section">
-  <div class="container is-fluid">
-    <h1 class="title is-centered">Eat-Da-Burger</h1>
 
-    <div class="tile is-ancestor">
-      <div class="tile is-parent">
-          <div class="tile is-child box">
-            <figure class="image is-128x128">
-              <img src="../../assets/img/hamburger.png" alt="burger">
-              </figure>
-              <form class="create-form">
-              <div class="form-group">
-                <label for="burger">Burger Name:</label>
-                 <input type="text" id="burger" name="name">
-                 <button class="button is-rounded" type="submit" id="submit">Order Your Burger</button>
-              </form>
-              </div>
-          </div>
-          </div>
-          <div class="tile is-parent">
-            <div class="tile is-child box"> 
-            <h2>Your order is ready!</h2>
-            <ul class= "orders">
-              {{#each burgers}}
-                {{#unless devoured}}
-                <li>
-                  {{burger_name}}
-                  <button class="button is-rounded eat" data-id="{{id}}" data-state="{{devoured}}">Eat-da-burger!</button>
-                </li>
-                {{/unless}}
-                {{/each}}
-                </ul> 
-                </div>
-                </div>
-                <div class="tile is-parent">
-                  <div class="tile is-child box">
-                    <h2>Hope you enjoyed your burger!</h2>
-                    <ul class="devoured">
-                        {{#each burgers}}
-                        {{#if devoured}}
-                        <li>
-                        {{burger_name}}
-                        </li>
-                        {{/if}}
-                        {{/each}}
-                    </ul>
-                  </div>
-                </div>   
+<h1>Eat-Da-Burger!</h1>
 
-    </div>
+<h2>Burgers that are ready to eat!</h2>
+
+<ul class="orders">
+  {{#each burgers}}
+  {{#unless devoured}}
+  <li>
+    {{burger_name}}
+    <button class="button eat" data-id="{{id}}" data-state="{{devoured}}">Eat-da-burger!</button>
+  </li>
+  {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers that are devoured!</h2>
+
+<ul class="devoured">
+  {{#each burgers}}
+  {{#if devoured}}
+  <li>
+    {{burger_name}}
+  </li>
+  {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burger" name="name">
   </div>
-</section>
+
+
+  <button type="submit">Add Burger</button>
+</form>

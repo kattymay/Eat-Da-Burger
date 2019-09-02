@@ -1,13 +1,12 @@
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
-      console.log("create form submitted");
+      console.log("create form");
   
       var newBurger = {
-        name: $("#burger")
-          .val()
-          .trim()
+        name: $("#burger").val().trim()
       };
   
       // Send the POST request.
